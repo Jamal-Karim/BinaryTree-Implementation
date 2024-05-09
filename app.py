@@ -51,6 +51,17 @@ class Tree:
                 curr = curr.left
             root.data = curr.data
             root.right = self.delete(root.right, root.data)
+
+    def find(self, root, value):
+        if root == None:
+            return False
+        if root.data == value:
+            return root.data
+        
+        if value < root.data:
+            return self.find(root.left, value)
+        else:
+            return self.find(root.right, value)
     
 x = Tree([1, 4, 6, 8, 3, 9, 12])
 
