@@ -62,6 +62,38 @@ class Tree:
             return self.find(root.left, value)
         else:
             return self.find(root.right, value)
+
+    def levelOrder(self, root):
+        queue = []
+        queue.append(root)
+
+        while(len(queue) > 0):
+            print(queue[0].data)
+            node = queue.pop(0)
+
+            if node.left is not None:
+                queue.append(node.left)
+
+            if node.right is not None:
+                queue.append(node.right)
+
+    def inOrder(self, root):
+        if root:
+            self.inOrder(root.left)
+            print(root.data)
+            self.inOrder(root.right)
+
+    def preOrder(self, root):
+        if root:
+            print(root.data)
+            self.preOrder(root.left)
+            self.preOrder(root.right)
+
+    def postOrder(self, root):
+        if root:
+            self.postOrder(root.left)
+            self.postOrder(root.right)
+            print(root.data)
     
 x = Tree([1, 4, 6, 8, 3, 9, 12])
 
