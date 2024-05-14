@@ -94,6 +94,14 @@ class Tree:
             self.postOrder(root.left)
             self.postOrder(root.right)
             print(root.data)
+
+    def depth(self, root):
+        if root == None:
+            return 0
+        
+        l = self.depth(root.left)
+        r = self.depth(root.right)
+        return max(l, r) + 1
     
 x = Tree([1, 4, 6, 8, 3, 9, 12])
 
